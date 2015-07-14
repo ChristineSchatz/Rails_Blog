@@ -1,0 +1,11 @@
+<h3> Welcome <%= @user.username %>! </h3>
+
+<% @user.blogs.each do |blog| %>
+  <div><%= link_to blog.name, blog_posts_path(blog) %>  </div>
+  <div><%= blog.description %></div>
+  <div><%= link_to 'edit', edit_blog_path(blog) %></div>
+  <div><%= link_to 'delete', blog_path(blog), :method => :delete %></div>
+
+<% end %>
+
+<div> <%= link_to "createblog", new_blog_path %> </div>
