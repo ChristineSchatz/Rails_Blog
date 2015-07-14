@@ -15,7 +15,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+
+    if params[:id].to_i == session[:user_id]
+      render :file => 'app/views/users/show.erb'
+    else
+      permission_denied
+    end
+
   end
+
 
   private
   def user_params

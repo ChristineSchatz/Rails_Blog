@@ -4,4 +4,5 @@ class Blog < ActiveRecord::Base
 
   validates :name, :user_id, uniqueness: { case_sensitive: false }
   validates :name, :description, presence: true
+
 end
