@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    # I like session.delete(:user_id) since it removes the key entirely instead of setting it to nil.
     redirect_to root_path
   end
 
