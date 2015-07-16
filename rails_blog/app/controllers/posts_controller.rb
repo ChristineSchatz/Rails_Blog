@@ -1,6 +1,7 @@
-class PostsController < ApplicationController
+  class PostsController < ApplicationController
   def index
-    @posts = Blog.find_by_id(params[:blog_id]).posts
+    @blog = Blog.find_by_id(params[:blog_id])
+    @posts = @blog.posts
   end
 
   def show
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     blog = Blog.find_by_id(params[:blog_id])
     blog.posts << post
+    # error handling
     redirect_to blog_posts_path(blog)
   end
 
